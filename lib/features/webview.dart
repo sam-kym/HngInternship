@@ -11,14 +11,10 @@ class CustomWebView extends StatefulWidget {
 }
 
 class _CustomWebViewState extends State<CustomWebView> {
-  late final WebViewController controller;
 
-  @override
-  void initState(){
-    super.initState();
-    controller = WebViewController();
-
-  }
+  final controller = WebViewController()
+  ..setJavaScriptMode(JavaScriptMode.disabled)
+  ..loadRequest(Uri.parse('https://github.com/sam-kym'));
 
   @override
   Widget build(BuildContext context) {

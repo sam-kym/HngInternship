@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:hng/features/webview.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,31 +11,46 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'HNG INTERNSHIP',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold
-          ),
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Container(
-          height: MediaQuery.sizeOf(context).height*0.65,
-          width: MediaQuery.sizeOf(context).width*0.85,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                'assets/images/profile.jpg'
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(
+              title: const Text(
+                'HNG INTERNSHIP',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              fit: BoxFit.cover
-            )
-          ),
-        ),
-      ),
-    ));
+              centerTitle: true,
+            ),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Center(
+                  child: Flexible(
+                      child: Text(
+                    '@Kimani-Wangui',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  )),
+                ),
+                Center(
+                  child: Container(
+                    height: MediaQuery.sizeOf(context).height * 0.65,
+                    width: MediaQuery.sizeOf(context).width * 0.85,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/profile.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                ),
+                Flexible(
+                    child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CustomWebView()));
+                  },
+                  child: const Text('WebView Button'),
+                ))
+              ],
+            )));
   }
 }
