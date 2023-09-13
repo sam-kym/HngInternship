@@ -23,12 +23,14 @@ class _MainPageState extends State<MainPage> {
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Center(
-                  child: Flexible(
-                      child: Text(
+                 const Center(
+                  child: Text(
                     '@Kimani-Wangui',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Center(
                   child: Container(
@@ -40,16 +42,15 @@ class _MainPageState extends State<MainPage> {
                             fit: BoxFit.cover)),
                   ),
                 ),
-                Flexible(
-                    child: ElevatedButton(
+                ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CustomWebView()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CustomWebView()));
                   },
                   child: const Text('WebView Button'),
-                ))
+                )
               ],
             )));
   }
